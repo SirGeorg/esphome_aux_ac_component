@@ -2044,6 +2044,8 @@ class AirCon : public esphome::Component, public esphome::climate::Climate {
                         // In COOL mode AC receives command without any changes.
                         // May be other AUX-based air conditioners do the same.
                         if (                     cmd.mode == AC_MODE_FAN
+			        or cmd.mode == AC_MODE_COOL
+			    	or _current_ac_state.mode == AC_MODE_COOL
                                 or _current_ac_state.mode == AC_MODE_FAN) {
                             
                             hasCommand = true;
